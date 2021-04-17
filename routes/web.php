@@ -5,10 +5,6 @@ use App\Http\Controllers\Home\FrontController as HomeFront;
 use App\Http\Controllers\Admin\FrontController as AdminFront;
 use App\Http\Controllers\Admin\BackController;
 
-Route::get('/', function () {
-    return "WEBSITE OK!";
-});
-
 // HOME Routing
 Route::group(['prefix' => '/home'], function () {
     Route::get('/', function () {
@@ -16,9 +12,7 @@ Route::group(['prefix' => '/home'], function () {
     });
 });
 
-
-
 // Administrator Routing
-Route::group([], function () {
+Route::group(['prefix' => '/'], function () {
     Route::get('/', [AdminFront::class, 'index']);
 });
