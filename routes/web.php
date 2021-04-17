@@ -12,7 +12,7 @@ Route::group(['prefix' => '/home'], function () {
     })->name('home-index');
 });
 
-// Administrator Routing
+// ADMINISTRATOR Routing
 Route::group(['prefix' => '/', 'middleware' => 'checkauth'], function () {
     Route::get('/', [AdminFront::class, 'index'])->name('admin-index');
 });
