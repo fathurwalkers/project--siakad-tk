@@ -12,33 +12,43 @@ class FrontController extends Controller
         return "BACKEND CONTROLLER IS OK!";
     }
 
-    public function create()
+    public function login()
     {
-        //
+        return "Login Page";
+    }
+    
+    public function register()
+    {
+        return "Register Page";
     }
 
-    public function store(Request $request)
-    {
-        //
-    }
+    // public function create()
+    // {
+    //     //
+    // }
 
-    public function show($id)
-    {
-        //
-    }
+    // public function store(Request $request)
+    // {
+    //     //
+    // }
 
-    public function edit($id)
-    {
-        //
-    }
+    // public function show($id)
+    // {
+    //     //
+    // }
 
-    public function update(Request $request, $id)
-    {
-        //
-    }
+    // public function edit($id)
+    // {
+    //     //
+    // }
 
-    public function destroy($id)
-    {
-        //
-    }
+    // public function update(Request $request, $id)
+    // {
+    //     //
+    // }
+
+    // public function destroy($id)
+    // {
+    //     //
+    // }
 }

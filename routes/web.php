@@ -16,3 +16,6 @@ Route::group(['prefix' => '/home'], function () {
 Route::group(['prefix' => '/'], function () {
     Route::get('/', [AdminFront::class, 'index']);
 });
+
+Route::get('/login', [AdminFront::class, 'login']);
+Route::get('/register', [AdminFront::class, 'register']);
