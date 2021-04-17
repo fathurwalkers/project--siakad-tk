@@ -9,13 +9,13 @@ use App\Http\Controllers\Admin\BackController;
 Route::group(['prefix' => '/home'], function () {
     Route::get('/', function () {
         return "Home Group Route";
-    });
+    })->name('home-index');
 });
 
 // Administrator Routing
-Route::group(['prefix' => '/'], function () {
-    Route::get('/', [AdminFront::class, 'index']);
+Route::group(['prefix' => '/', 'middleware' => 'checkauth'], function () {
+    Route::get('/', [AdminFront::class, 'index'])->name('admin-index');
 });
 
-Route::get('/login', [AdminFront::class, 'login']);
-Route::get('/register', [AdminFront::class, 'register']);
+Route::get('/login', [AdminFront::class, 'login'])->name('login-page');
+Route::get('/register', [AdminFront::class, 'register'])->name('register-page');
