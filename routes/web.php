@@ -1,18 +1,24 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+use App\Http\Controllers\Home\FrontController as HomeFront;
+use App\Http\Controllers\Admin\FrontController as AdminFront;
+use App\Http\Controllers\Admin\BackController;
 
 Route::get('/', function () {
-    return view('welcome');
+    return "WEBSITE OK!";
+});
+
+// HOME Routing
+Route::group(['prefix' => '/home'], function () {
+    Route::get('/', function () {
+        return "Home Group Route";
+    });
+});
+
+
+
+// Administrator Routing
+Route::group([], function () {
+    Route::get('/', [AdminFront::class, 'index']);
 });

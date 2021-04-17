@@ -9,7 +9,7 @@ class FrontController extends Controller
 {
     public function index()
     {
-        //
+        return "BACKEND CONTROLLER IS OK!";
     }
 
     public function create()
