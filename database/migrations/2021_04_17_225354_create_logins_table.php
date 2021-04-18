@@ -20,7 +20,7 @@ class CreateLoginsTable extends Migration
             $table->unsignedBigInteger('detail_id')->nullable();
             $table->foreign('detail_id')->references('id')->on('detail')->onDelete('cascade');
 
-            $table->timestamps()->default(now());
+            $table->timestamps();
         });
     }
 
