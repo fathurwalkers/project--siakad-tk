@@ -18,7 +18,7 @@ class CreateLoginsTable extends Migration
             $table->string('login_status');
 
             $table->unsignedBigInteger('detail_id')->nullable();
-            $table->foreign('detail_id')->references()->on()->onDelete('cascade');
+            $table->foreign('detail_id')->references('id')->on('detail')->onDelete('cascade');
 
             $table->timestamps();
         });
