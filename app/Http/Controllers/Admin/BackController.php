@@ -73,4 +73,9 @@ class BackController extends Controller
     {
         //
     }
+
+    public function logout(Request $request)
+    {
+        // $request->session()->flush();
+    }
 }
