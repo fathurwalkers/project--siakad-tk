@@ -14,12 +14,12 @@ class FrontController extends Controller
 
     public function login()
     {
-        return "Login Page";
+        return view('login');
     }
     
     public function register()
     {
-        return "Register Page";
+        return view('register');
     }
 
     // public function create()
