@@ -10,9 +10,46 @@ use Faker\Factory as Faker;
 use Illuminate\Support\Arr as Randoms;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
+use App\Services\Blowfish;
 
 class BackController extends Controller
 {
+    public function testroute()
+    {
+        $blowfish = new Blowfish;
+
+        $plainText      = '111';
+        $encPassword    = 'dadada';
+        $encVector      = 'vector';
+        $encType        = Blowfish::BLOWFISH_MODE_EBC;
+        $paddingType    = Blowfish::BLOWFISH_PADDING_RFC;
+
+
+        $encryptedText = $blowfish->encrypt(
+            $plainText,
+            $encPassword, # encryption key
+            $encType, # Encryption Mode
+            $paddingType, # Padding Style
+            // $encVector  # Initialisation Vector - required for CBC
+        );
+
+        $decryptedText = $blowfish->decrypt(
+            $encryptedText,
+            $encPassword, # encryption key
+            $encType, # Encryption Mode
+            $paddingType, # Padding Style
+            // $encVector  # Initialisation Vector - required for CBC
+        );
+
+        $data = [
+            'plain' => $plainText,
+            'encrypt' => $encryptedText,
+            'decrypt' => $decryptedText
+        ];
+
+        return view('test', compact('data'));
+    }
+
     public function index()
     {
         return "Index Page";

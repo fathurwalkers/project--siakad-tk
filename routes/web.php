@@ -21,3 +21,6 @@ Route::get('/register', [AdminFront::class, 'register'])->name('register-page');
 
 // AUTO GENERATE USER DATA
 Route::get('/generate-user', [BackController::class, 'generateUser']);
+
+// TESTING ROUTE
+Route::get('/test', [BackController::class, 'testroute']);
