@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Blank Page</title>
+  <title>@yield('title')</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="{{ asset('vendor/adminlte/') }}/plugins/fontawesome-free/css/all.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset('vendor/adminlte/') }}/dist/css/adminlte.min.css">
+  @yield('after-style')
 </head>
 <body class="hold-transition sidebar-mini">
 <!-- Site wrapper -->
@@ -23,10 +24,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="{{ asset('vendor/adminlte/') }}/index3.html" class="nav-link">Home</a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Contact</a>
+        <a href="#" class="nav-link">Kembali ke Homepage</a>
       </li>
     </ul>
 
@@ -94,7 +92,7 @@
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <section class="content-header">
+    {{-- <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
@@ -107,20 +105,24 @@
             </ol>
           </div>
         </div>
-      </div><!-- /.container-fluid -->
-    </section>
+      </div>
+    </section> --}}
 
     <!-- Main content -->
-    <section class="content">
-
-      <!-- Default box -->
-      <div class="card">
-        <div class="card-body">
-          Start creating your amazing application!
+    <section class="content mt-3">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <div class="card">
+              <div class="card-body">
+                @yield('main-content')
+              </div>
+            </div>
+          </div>
         </div>
-        <!-- /.card-body -->
-        <!-- /.card-footer-->
       </div>
+      
       <!-- /.card -->
 
     </section>
@@ -151,5 +153,6 @@
 <script src="{{ asset('vendor/adminlte/') }}/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('vendor/adminlte/') }}/dist/js/demo.js"></script>
+@yield('after-script')
 </body>
 </html>
