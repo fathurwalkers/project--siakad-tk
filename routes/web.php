@@ -11,9 +11,12 @@ Route::group(['prefix' => '/home'], function () {
 });
 
 // ADMINISTRATOR Routing
-Route::group(['prefix' => '/', 'middleware' => 'checkauth'], function () {
+Route::group(['prefix' => '/dashboard'], function () {
     Route::get('/', [AdminFront::class, 'index'])->name('admin-index');
 });
+// Route::group(['prefix' => '/dashboard', 'middleware' => 'checkauth'], function () {
+//     Route::get('/', [AdminFront::class, 'index'])->name('admin-index');
+// });
 
 Route::get('/login', [AdminFront::class, 'login'])->name('login-page');
 Route::get('/register', [AdminFront::class, 'register'])->name('register-page');

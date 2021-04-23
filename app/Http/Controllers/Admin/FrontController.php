@@ -9,7 +9,7 @@ class FrontController extends Controller
 {
     public function index()
     {
-        return "BACKEND CONTROLLER IS OK!";
+        return view('admin.index');
     }
 
     public function login()
