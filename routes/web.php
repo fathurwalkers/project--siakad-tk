@@ -6,7 +6,7 @@ use App\Http\Controllers\Admin\FrontController as AdminFront;
 use App\Http\Controllers\Admin\BackController;
 
 // HOME Routing
-Route::group(['prefix' => '/home'], function () {
+Route::group(['prefix' => '/'], function () {
     Route::get('/', [HomeFront::class, 'index'])->name('home-index');
 });
 
