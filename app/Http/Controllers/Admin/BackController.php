@@ -16,35 +16,37 @@ class BackController extends Controller
 {
     public function testroute()
     {
-        $blowfish = new Blowfish;
-
         $plainText      = '111';
-        $encPassword    = 'dadada';
+        $encPassword    = 'ctr';
         $encVector      = 'vector';
-        $encType        = Blowfish::BLOWFISH_MODE_EBC;
-        $paddingType    = Blowfish::BLOWFISH_PADDING_RFC;
+        // $encType        = Blowfish::BLOWFISH_MODE_EBC;
+        // $paddingType    = Blowfish::BLOWFISH_PADDING_RFC;
+        
+        $blowfish = new Blowfish("secret Key");
 
+        $crypted        = $blowfish->Encrypt($plainText);
+        $decrypted      = $blowfish->Decrypt($crypted);
 
-        $encryptedText = $blowfish->encrypt(
-            $plainText,
-            $encPassword, # encryption key
-            $encType, # Encryption Mode
-            $paddingType, # Padding Style
-            // $encVector  # Initialisation Vector - required for CBC
-        );
+        // $encryptedText = $blowfish->encrypt(
+        //     $plainText,
+        //     $encPassword, # encryption key
+        //     $encType, # Encryption Mode
+        //     $paddingType, # Padding Style
+        //     // $encVector  # Initialisation Vector - required for CBC
+        // );
 
-        $decryptedText = $blowfish->decrypt(
-            $encryptedText,
-            $encPassword, # encryption key
-            $encType, # Encryption Mode
-            $paddingType, # Padding Style
-            // $encVector  # Initialisation Vector - required for CBC
-        );
+        // $decryptedText = $blowfish->decrypt(
+        //     $encryptedText,
+        //     $encPassword, # encryption key
+        //     $encType, # Encryption Mode
+        //     $paddingType, # Padding Style
+        //     // $encVector  # Initialisation Vector - required for CBC
+        // );
 
         $data = [
             'plain' => $plainText,
-            'encrypt' => $encryptedText,
-            'decrypt' => $decryptedText
+            'encrypt' => $crypted,
+            'decrypt' => $decrypted
         ];
 
         return view('test', compact('data'));
