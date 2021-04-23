@@ -11,6 +11,8 @@ use Illuminate\Support\Arr as Randoms;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
 use App\Services\Blowfish;
+use Illuminate\Contracts\Encryption\DecryptException;
+use Illuminate\Support\Facades\Crypt;
 
 class BackController extends Controller
 {
@@ -22,10 +24,14 @@ class BackController extends Controller
         // $encType        = Blowfish::BLOWFISH_MODE_EBC;
         // $paddingType    = Blowfish::BLOWFISH_PADDING_RFC;
         
-        $blowfish = new Blowfish("secret Key");
+        // $blowfish = Crypt::setChiper('blowfish');
 
-        $crypted        = $blowfish->Encrypt($plainText);
-        $decrypted      = $blowfish->Decrypt($crypted);
+        $crypted = Crypt::encrypt($plainText);
+        try {
+            $decrypted = Crypt::decrypt($crypted);
+        } catch (DecryptException $e) {
+            return $e;
+        }
 
         // $encryptedText = $blowfish->encrypt(
         //     $plainText,
