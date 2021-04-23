@@ -3,5 +3,5 @@
 @section('title', 'Dashboard Page')
 
 @section('main-content')
-    Hello World!
+    <h1>Hello World!</h1>
 @endsection
