@@ -72,12 +72,12 @@ class BackController extends Controller
         return redirect()->route('home-index')->with('generate_success', 'Generate Data Berhasil');
     }
 
-    public function postLogin()
+    public function postLogin(Request $request)
     {
         //
     }
 
-    public function postRegister()
+    public function postRegister(Request $request)
     {
         //
     }
