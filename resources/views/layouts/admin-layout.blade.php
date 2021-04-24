@@ -120,9 +120,9 @@
             <div class="card">
               <div class="card-body">
 
-                @if (session('login_fail'))
-                    <div class="alert alert-danger">
-                        {{ session('login_fail') }}
+                @if (session('login_success'))
+                    <div class="alert alert-success">
+                        {{ session('login_success') }}
                     </div>
                 @endif
 
