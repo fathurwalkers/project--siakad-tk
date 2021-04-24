@@ -44,13 +44,13 @@ class BackController extends Controller
             ]);
             $saveDetail->save();
 
-            $username               = Str::random(5);
+            $username               = strtoupper(Str::random(5));
             $password               = Hash::make($username, [
                                             'rounds' => 12,
                                         ]);
             $email                  = strtolower($username);
             $email                 .= '@website.com';
-            $status                 = ['verified', 'unverified'];
+            $status                 = ['active', 'unactive'];
             $token = Str::random(16);
             $saveLogin = $login->create([
                 'login_username'    => $username,
