@@ -18,7 +18,7 @@ class BackController extends Controller
 {
     public function testroute()
     {
-        //
+        // TESTING ROUTE
     }
 
     public function generateUser()

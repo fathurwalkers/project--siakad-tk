@@ -21,7 +21,6 @@ Route::post('/post-login', [BackController::class, 'postLogin'])->name('post-log
 Route::get('/register', [AdminFront::class, 'register'])->name('register-page');
 Route::post('/post-register', [BackController::class, 'postRegister'])->name('post-register');
 
-
 // AUTO GENERATE USER DATA
 Route::get('/generate-user', [BackController::class, 'generateUser']);
 
