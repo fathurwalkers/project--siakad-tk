@@ -20,7 +20,9 @@ Route::group(['prefix' => '/dashboard'], function () {
 // });
 
 Route::get('/login', [AdminFront::class, 'login'])->name('login-page');
+Route::post('/login', [BackController::class, 'post_login'])->name('post-login');
 Route::get('/register', [AdminFront::class, 'register'])->name('register-page');
+Route::post('/register', [BackController::class, 'post_register'])->name('post-register');
 
 
 // AUTO GENERATE USER DATA
