@@ -26,7 +26,7 @@ class FrontController extends Controller
 
     public function daftarUser()
     {
-        $daftar_user = Detail::all();
+        $daftar_user = Detail::whereIn('detail_role', ['guest', 'user'])->get();
         return view('admin.user.daftar-user', [
             'detail' => $daftar_user
         ]);
