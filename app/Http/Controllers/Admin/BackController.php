@@ -28,11 +28,13 @@ class BackController extends Controller
             $jeniskelamin               = ['L', 'P'];
             $detail                     = new Detail;
             $login                      = new Login;
+            $level                      = ['guest', 'user'];
             $saveDetail = $detail->create([
                 'detail_nama'           => $faker->name,
                 'detail_telepon'        => $faker->phoneNumber,
                 'detail_alamat'         => $faker->address,
                 'detail_jeniskelamin'   => Randoms::random($jeniskelamin),
+                'detail_role'           => Randoms::random($level),
                 'created_at'            => now(),
                 'updated_at'            => now()
             ]);
@@ -44,7 +46,6 @@ class BackController extends Controller
                                         ]);
             $email                  = strtolower($username);
             $email                 .= '@website.com';
-            $level                  = ['guest', 'user'];
             $status                 = ['verified', 'unverified'];
             $token = Str::random(16);
             $saveLogin = $login->create([
@@ -52,7 +53,7 @@ class BackController extends Controller
                 'login_password'    => $password,
                 'login_email'       => $email,
                 'login_token'       => $token,
-                'login_level'       => Randoms::random($level),
+                'login_level'       => $saveDetail->detail_role,
                 'login_status'      => Randoms::random($status),
                 'created_at'        => now(),
                 'updated_at'        => now(),

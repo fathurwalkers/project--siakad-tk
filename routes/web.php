@@ -13,6 +13,9 @@ Route::group(['prefix' => '/'], function () {
 // ADMINISTRATOR Routing
 Route::group(['prefix' => '/dashboard', 'middleware' => 'checkauth'], function () {
     Route::get('/', [AdminFront::class, 'index'])->name('admin-index');
+    Route::group(['prefix' => '/user'], function () {
+        Route::get('/daftar-user', [AdminFront::class, 'daftarUser'])->name('admin-daftar-user');
+    });
     Route::post('/logout', [BackController::class, 'logout'])->name('post-logout');
 });
 

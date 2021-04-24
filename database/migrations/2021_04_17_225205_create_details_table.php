@@ -14,6 +14,7 @@ class CreateDetailsTable extends Migration
             $table->string('detail_telepon');
             $table->string('detail_alamat');
             $table->string('detail_jeniskelamin');
+            $table->string('detail_role')->default('guest');
             $table->timestamps();
         });
     }

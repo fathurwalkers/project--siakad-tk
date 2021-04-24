@@ -15,11 +15,13 @@ class DatabaseSeeder extends Seeder
         $jeniskelamin               = 'L';
         $detail                     = new Detail;
         $login                      = new Login;
+        $level                      = 'admin';
         $saveDetail = $detail->create([
             'detail_nama'           => 'Administrator',
             'detail_telepon'        => '085494939129',
             'detail_alamat'         => 'No Address',
             'detail_jeniskelamin'   => $jeniskelamin,
+            'detail_role'           => $level,
             'created_at'            => now(),
             'updated_at'            => now()
         ]);
@@ -30,7 +32,6 @@ class DatabaseSeeder extends Seeder
                                     ]);
         $email                  = strtolower($username);
         $email                 .= '@siakadtk.com';
-        $level                  = 'admin';
         $status                 = 'verified';
         $token = Str::random(16);
         $saveLogin = $login->create([

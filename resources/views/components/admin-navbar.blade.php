@@ -28,12 +28,21 @@
               <p>Edit Profil</p>
             </a>
           </li>
+
+          <li class="nav-item">
+            <a href="{{ route('admin-daftar-user') }}" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Daftar User</p>
+            </a>
+          </li>
+
           <li class="nav-item">
             <a href="{{ asset('vendor/adminlte/') }}/index3.html" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
               <p>Tambah User</p>
             </a>
           </li>
+
         </ul>
       </li>
 
