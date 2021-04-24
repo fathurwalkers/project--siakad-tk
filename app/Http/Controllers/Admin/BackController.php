@@ -74,7 +74,40 @@ class BackController extends Controller
 
     public function postLogin(Request $request)
     {
-        //
+        $cariUser = Login::where('login_username', $request->login_username)->get();
+        if ($cariUser->isEmpty()) {
+            return back()->with('login_fail', 'Maaf username atau password salah!')->withInput();
+        }
+        $data_login = Login::where('login_username', $request->login_username)->firstOrFail();
+        switch ($data_login->login_level) {
+            case 'admin':
+                $cek_password = Hash::check($request->password, $data_login->password);
+                if ($data_login) {
+                    if ($cek_password) {
+                        $users = session(['data_login' => $data_login]);
+                        return redirect()->route('dashboard');
+                    }
+                }
+                break;
+            case 'guru':
+                if ($request->password == $data_login->password) {
+                    $users = session(['data_login' => $data_login]);
+                    return redirect()->route('dashboard');
+                }
+                break;
+            case 'siswa':
+                if ($request->password == $data_login->password) {
+                    $users = session(['data_login' => $data_login]);
+                    return redirect()->route('dashboard');
+                }
+                break;
+            case 'kepsek':
+                if ($request->password == $data_login->password) {
+                    $users = session(['data_login' => $data_login]);
+                    return redirect()->route('dashboard');
+                }
+                break;
+        }
     }
 
     public function postRegister(Request $request)
