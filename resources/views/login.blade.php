@@ -15,17 +15,25 @@
   <link rel="stylesheet" href="{{ asset('vendor/adminlte/') }}/dist/css/adminlte.min.css">
 </head>
 <body class="hold-transition login-page">
-<div class="login-box">
+<div class="login-box mx-auto">
   <!-- /.login-logo -->
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
       <a href="{{ asset('vendor/adminlte/') }}/index2.html" class="h1"><b>Admin</b>LTE</a>
     </div>
     <div class="card-body">
+
         <p class="login-box-msg">Sign in to start your session</p>
+
         @if (session('login_fail'))
             <div class="alert alert-danger">
                 {{ session('login_fail') }}
+            </div>
+        @endif
+
+        @if (session('logout_success'))
+            <div class="alert alert-info">
+                {{ session('logout_success') }}
             </div>
         @endif
 

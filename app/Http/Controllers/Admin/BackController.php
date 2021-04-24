@@ -142,6 +142,6 @@ class BackController extends Controller
     public function logout(Request $request)
     {
         $request->session()->flush();
-        return redirect()->route('login-page')->with('success_logout', 'Anda telah logout!');
+        return redirect()->route('login-page')->with('logout_success', 'Anda telah logout!');
     }
 }
