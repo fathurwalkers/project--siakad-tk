@@ -81,7 +81,7 @@ class BackController extends Controller
         $data_login = Login::where('login_username', $request->login_username)->firstOrFail();
         switch ($data_login->login_level) {
             case 'admin':
-                $cek_password = Hash::check($request->password, $data_login->password);
+                $cek_password = Hash::check($request->login_password, $data_login->login_password);
                 if ($data_login) {
                     if ($cek_password) {
                         $users = session(['data_login' => $data_login]);
@@ -90,21 +90,43 @@ class BackController extends Controller
                 }
                 break;
             case 'guru':
-                if ($request->password == $data_login->password) {
-                    $users = session(['data_login' => $data_login]);
-                    return redirect()->route('dashboard');
+                $cek_password = Hash::check($request->login_password, $data_login->login_password);
+                if ($data_login) {
+                    if ($cek_password) {
+                        $users = session(['data_login' => $data_login]);
+                        return redirect()->route('dashboard');
+                    }
                 }
+                // if ($request->login_password == $data_login->login_password) {
+                //     $users = session(['data_login' => $data_login]);
+                //     return redirect()->route('dashboard');
+                // }
                 break;
             case 'siswa':
-                if ($request->password == $data_login->password) {
-                    $users = session(['data_login' => $data_login]);
-                    return redirect()->route('dashboard');
+                $cek_password = Hash::check($request->login_password, $data_login->login_password);
+                if ($data_login) {
+                    if ($cek_password) {
+                        $users = session(['data_login' => $data_login]);
+                        return redirect()->route('dashboard');
+                    }
                 }
                 break;
             case 'kepsek':
-                if ($request->password == $data_login->password) {
-                    $users = session(['data_login' => $data_login]);
-                    return redirect()->route('dashboard');
+                $cek_password = Hash::check($request->login_password, $data_login->login_password);
+                if ($data_login) {
+                    if ($cek_password) {
+                        $users = session(['data_login' => $data_login]);
+                        return redirect()->route('dashboard');
+                    }
+                }
+                break;
+            case 'guest':
+                $cek_password = Hash::check($request->login_password, $data_login->login_password);
+                if ($data_login) {
+                    if ($cek_password) {
+                        $users = session(['data_login' => $data_login]);
+                        return redirect()->route('dashboard');
+                    }
                 }
                 break;
         }
