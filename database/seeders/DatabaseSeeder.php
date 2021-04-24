@@ -36,7 +36,7 @@ class DatabaseSeeder extends Seeder
                                     ]);
         $email                  = strtolower($username);
         $email                 .= '@siakadtk.com';
-        $status                 = 'verified';
+        $status                 = 'active';
         $token = Str::random(16);
         $saveLogin = $login->create([
             'login_username'    => $username,
@@ -50,5 +50,44 @@ class DatabaseSeeder extends Seeder
         ]);
         $saveLogin->detail()->associate($saveDetail->id);
         $saveLogin->save();
+
+        // ------------------------------------------------------------------------------ //
+
+        $jeniskelamin               = 'P';
+        $level                      = 'admin';
+        $saveDetail2 = $detail->create([
+            'detail_nama'                           => 'Administrator 2',
+            'detail_nomor_registrasi'               => '99999992',
+            'detail_telepon'                        => '085494939222',
+            'detail_alamat'                         => 'No Address',
+            'detail_jeniskelamin'                   => $jeniskelamin,
+            'detail_status'                         => 'unactive',
+            'detail_nama_ayah'                      => null,
+            'detail_nama_ibu'                       => null,
+            'detail_role'                           => $level,
+            'created_at'                            => now(),
+            'updated_at'                            => now()
+        ]);
+        $saveDetail2->save();
+        $username               = 'admin2';
+        $password               = Hash::make($username, [
+                                        'rounds' => 12,
+                                    ]);
+        $email                  = strtolower($username);
+        $email                 .= '@siakadtk.com';
+        $status                 = 'active';
+        $token = Str::random(16);
+        $saveLogin2 = $login->create([
+            'login_username'    => $username,
+            'login_password'    => $password,
+            'login_email'       => $email,
+            'login_token'       => $token,
+            'login_level'       => $level,
+            'login_status'      => $status,
+            'created_at'        => now(),
+            'updated_at'        => now(),
+        ]);
+        $saveLogin2->detail()->associate($saveDetail2->id);
+        $saveLogin2->save();
     }
 }
