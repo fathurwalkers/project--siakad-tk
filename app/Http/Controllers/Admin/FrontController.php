@@ -32,6 +32,16 @@ class FrontController extends Controller
         ]);
     }
 
+    public function daftarArtikel()
+    {
+        return view('admin.post.daftar-artikel');
+    }
+
+    public function buatArtikel()
+    {
+        return view('admin.post.buat-artikel');
+    }
+
     // public function create()
     // {
     //     //

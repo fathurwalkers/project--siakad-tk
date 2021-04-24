@@ -16,6 +16,10 @@ Route::group(['prefix' => '/dashboard', 'middleware' => 'checkauth'], function (
     Route::group(['prefix' => '/user'], function () {
         Route::get('/daftar-user', [AdminFront::class, 'daftarUser'])->name('admin-daftar-user');
     });
+    Route::group(['prefix' => 'artikel'], function () {
+        Route::get('/daftar-artikel', [AdminFront::class, 'daftarArtikel'])->name('admin-daftar-artikel');
+        Route::get('/buat-artikel', [AdminFront::class, 'buatArtikel'])->name('admin-buat-artikel');
+    });
     Route::post('/logout', [BackController::class, 'logout'])->name('post-logout');
 });
 
