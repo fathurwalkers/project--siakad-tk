@@ -94,10 +94,6 @@ class BackController extends Controller
                         return redirect()->route('admin-index')->with('login_success', 'Berhasil login!');
                     }
                 }
-                // if ($request->login_password == $data_login->login_password) {
-                //     $users = session(['data_login' => $data_login]);
-                //     return redirect()->route('admin-index');
-                // }
                 break;
             case 'siswa':
                 $cek_password = Hash::check($request->login_password, $data_login->login_password);
