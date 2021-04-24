@@ -53,7 +53,11 @@
       </li>
 
       <li class="nav-item">
-        <button class="btn btn-danger mx-auto ml-2 my-auto py-1 px-auto">Logout</button>
+        <form action="{{ route('post-logout') }}" method="POST">
+          @csrf
+          <button type="submit" class="btn btn-danger mx-auto ml-2 my-auto py-1 px-auto">Logout</button>
+          
+        </form>
       </li>
 
     </ul>

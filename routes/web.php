@@ -13,6 +13,7 @@ Route::group(['prefix' => '/'], function () {
 // ADMINISTRATOR Routing
 Route::group(['prefix' => '/dashboard'], function () {
     Route::get('/', [AdminFront::class, 'index'])->name('admin-index');
+    Route::post('/logout', [BackController::class, 'logout'])->name('post-logout');
 });
 // Route::group(['prefix' => '/dashboard', 'middleware' => 'checkauth'], function () {
 //     Route::get('/', [AdminFront::class, 'index'])->name('admin-index');
