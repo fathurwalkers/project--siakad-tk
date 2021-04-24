@@ -17,13 +17,17 @@ class DatabaseSeeder extends Seeder
         $login                      = new Login;
         $level                      = 'admin';
         $saveDetail = $detail->create([
-            'detail_nama'           => 'Administrator',
-            'detail_telepon'        => '085494939129',
-            'detail_alamat'         => 'No Address',
-            'detail_jeniskelamin'   => $jeniskelamin,
-            'detail_role'           => $level,
-            'created_at'            => now(),
-            'updated_at'            => now()
+            'detail_nama'                           => 'Administrator',
+            'detail_nomor_registrasi'               => '99999999',
+            'detail_telepon'                        => '085494939129',
+            'detail_alamat'                         => 'No Address',
+            'detail_jeniskelamin'                   => $jeniskelamin,
+            'detail_status'                         => 'active',
+            'detail_nama_ayah'                      => null,
+            'detail_nama_ibu'                       => null,
+            'detail_role'                           => $level,
+            'created_at'                            => now(),
+            'updated_at'                            => now()
         ]);
         $saveDetail->save();
         $username               = 'admin';

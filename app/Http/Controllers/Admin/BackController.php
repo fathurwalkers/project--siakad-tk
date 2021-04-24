@@ -30,13 +30,17 @@ class BackController extends Controller
             $login                      = new Login;
             $level                      = ['guest', 'user'];
             $saveDetail = $detail->create([
-                'detail_nama'           => $faker->name,
-                'detail_telepon'        => $faker->phoneNumber,
-                'detail_alamat'         => $faker->address,
-                'detail_jeniskelamin'   => Randoms::random($jeniskelamin),
-                'detail_role'           => Randoms::random($level),
-                'created_at'            => now(),
-                'updated_at'            => now()
+                'detail_nama'                   => $faker->name,
+                'detail_nomor_registrasi'       => $faker->randomNumber(8),
+                'detail_telepon'                => $faker->phoneNumber,
+                'detail_alamat'                 => $faker->address,
+                'detail_jeniskelamin'           => Randoms::random($jeniskelamin),
+                'detail_status'           => 'active',
+                'detail_nama_ayah'              => $faker->name,
+                'detail_nama_ibu'               => $faker->name,
+                'detail_role'                   => Randoms::random($level),
+                'created_at'                    => now(),
+                'updated_at'                    => now()
             ]);
             $saveDetail->save();
 

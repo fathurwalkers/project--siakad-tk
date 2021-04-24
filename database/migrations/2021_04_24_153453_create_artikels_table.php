@@ -21,10 +21,10 @@ class CreateArtikelsTable extends Migration
             $table->text('artikel_status');
             $table->text('artikel_penulis');
 
-            $table->unsignedBigInteger('login_id')->default(null);
+            $table->unsignedBigInteger('login_id')->default(null)->nullable();
             $table->foreign('login_id')->references('id')->on('login')->onDelete('cascade');
 
-            $table->unsignedBigInteger('kategori_id')->default(null);
+            $table->unsignedBigInteger('kategori_id')->default(null)->nullable();
             $table->foreign('kategori_id')->references('id')->on('kategori')->onDelete('cascade');
 
             $table->timestamps();
