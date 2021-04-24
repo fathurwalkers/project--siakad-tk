@@ -74,8 +74,9 @@ class BackController extends Controller
 
     public function postLogin(Request $request)
     {
-        $cariUser = Login::where('login_username', $request->login_username)->get();
-        if ($cariUser->isEmpty()) {
+        $cariUser = Login::where('login_username', $request->login_username)->firstOrFail();
+        // dd($cariUser);
+        if (!$cariUser) {
             return back()->with('login_fail', 'Maaf username atau password salah!')->withInput();
         }
         $data_login = Login::where('login_username', $request->login_username)->firstOrFail();
@@ -85,7 +86,7 @@ class BackController extends Controller
                 if ($data_login) {
                     if ($cek_password) {
                         $users = session(['data_login' => $data_login]);
-                        return redirect()->route('dashboard');
+                        return redirect()->route('admin-index');
                     }
                 }
                 break;
@@ -94,12 +95,12 @@ class BackController extends Controller
                 if ($data_login) {
                     if ($cek_password) {
                         $users = session(['data_login' => $data_login]);
-                        return redirect()->route('dashboard');
+                        return redirect()->route('admin-index');
                     }
                 }
                 // if ($request->login_password == $data_login->login_password) {
                 //     $users = session(['data_login' => $data_login]);
-                //     return redirect()->route('dashboard');
+                //     return redirect()->route('admin-index');
                 // }
                 break;
             case 'siswa':
@@ -107,7 +108,7 @@ class BackController extends Controller
                 if ($data_login) {
                     if ($cek_password) {
                         $users = session(['data_login' => $data_login]);
-                        return redirect()->route('dashboard');
+                        return redirect()->route('admin-index');
                     }
                 }
                 break;
@@ -116,7 +117,7 @@ class BackController extends Controller
                 if ($data_login) {
                     if ($cek_password) {
                         $users = session(['data_login' => $data_login]);
-                        return redirect()->route('dashboard');
+                        return redirect()->route('admin-index');
                     }
                 }
                 break;
@@ -125,7 +126,7 @@ class BackController extends Controller
                 if ($data_login) {
                     if ($cek_password) {
                         $users = session(['data_login' => $data_login]);
-                        return redirect()->route('dashboard');
+                        return redirect()->route('admin-index');
                     }
                 }
                 break;
@@ -139,8 +140,7 @@ class BackController extends Controller
 
     public function logout(Request $request)
     {
-        $request->session('data_login')->forget();
-        // $request->session()->flush();
+        $request->session()->flush();
         return redirect()->route('login-page')->with('success_logout', 'Anda telah logout!');
     }
 }
