@@ -9,8 +9,8 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="{{ asset('vendor/adminlte/') }}/plugins/fontawesome-free/css/all.min.css">
   <!-- Theme style -->
+  @stack('after-style')
   <link rel="stylesheet" href="{{ asset('vendor/adminlte/') }}/dist/css/adminlte.min.css">
-  @yield('after-style')
 </head>
 <body class="hold-transition sidebar-mini">
 <!-- Site wrapper -->
@@ -161,7 +161,7 @@
 <!-- AdminLTE App -->
 <script src="{{ asset('vendor/adminlte/') }}/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
+@stack('after-script')
 <script src="{{ asset('vendor/adminlte/') }}/dist/js/demo.js"></script>
-@yield('after-script')
 </body>
 </html>
