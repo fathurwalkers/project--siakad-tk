@@ -18,44 +18,7 @@ class BackController extends Controller
 {
     public function testroute()
     {
-        $plainText      = '111';
-        $encPassword    = 'ctr';
-        $encVector      = 'vector';
-        // $encType        = Blowfish::BLOWFISH_MODE_EBC;
-        // $paddingType    = Blowfish::BLOWFISH_PADDING_RFC;
-        
-        // $blowfish = Crypt::setChiper('blowfish');
-
-        $crypted = Crypt::encrypt($plainText);
-        try {
-            $decrypted = Crypt::decrypt($crypted);
-        } catch (DecryptException $e) {
-            return $e;
-        }
-
-        // $encryptedText = $blowfish->encrypt(
-        //     $plainText,
-        //     $encPassword, # encryption key
-        //     $encType, # Encryption Mode
-        //     $paddingType, # Padding Style
-        //     // $encVector  # Initialisation Vector - required for CBC
-        // );
-
-        // $decryptedText = $blowfish->decrypt(
-        //     $encryptedText,
-        //     $encPassword, # encryption key
-        //     $encType, # Encryption Mode
-        //     $paddingType, # Padding Style
-        //     // $encVector  # Initialisation Vector - required for CBC
-        // );
-
-        $data = [
-            'plain' => $plainText,
-            'encrypt' => $crypted,
-            'decrypt' => $decrypted
-        ];
-
-        return view('test', compact('data'));
+        //
     }
 
     public function index()
