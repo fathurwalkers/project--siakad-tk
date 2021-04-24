@@ -73,7 +73,7 @@ class BackController extends Controller
         $cariUser = Login::where('login_username', $request->login_username)->where('login_status', 'active')->get();
         // dd($cariUser);
         if ($cariUser->isEmpty()) {
-            return back()->with('login_fail', 'Maaf username atau password salah!')->withInput();
+            return back()->with('login_fail', 'Maaf, username atau password salah!')->withInput();
         } else {
             $data_login = Login::where('login_username', $request->login_username)->firstOrFail();
             switch ($data_login->login_level) {
