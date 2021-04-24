@@ -70,7 +70,7 @@ class BackController extends Controller
 
     public function postLogin(Request $request)
     {
-        $cariUser = Login::where('login_username', $request->login_username)->where('login_status', 'active')->get();
+        $cariUser = Login::where('login_username', $request->login_username)->get();
         // dd($cariUser);
         if ($cariUser->isEmpty()) {
             return back()->with('login_fail', 'Maaf, username atau password salah!')->withInput();
@@ -80,45 +80,72 @@ class BackController extends Controller
             case 'admin':
                 $cek_password = Hash::check($request->login_password, $data_login->login_password);
                 if ($data_login) {
-                    if ($cek_password) {
-                        $users = session(['data_login' => $data_login]);
-                        return redirect()->route('admin-index')->with('login_success', 'Berhasil login!');
+                    if ($data_login->login_status != 'active') {
+                        return back()->with('login_fail', 'Maaf, akun anda belum aktif!')->withInput();
+                    } else {
+                        if ($cek_password) {
+                            $users = session(['data_login' => $data_login]);
+                            return redirect()->route('admin-index')->with('login_success', 'Berhasil login!');
+                        }
                     }
                 }
                 break;
             case 'guru':
                 $cek_password = Hash::check($request->login_password, $data_login->login_password);
                 if ($data_login) {
-                    if ($cek_password) {
-                        $users = session(['data_login' => $data_login]);
-                        return redirect()->route('admin-index')->with('login_success', 'Berhasil login!');
+                    if ($data_login->login_status != 'active') {
+                        return back()->with('login_fail', 'Maaf, akun anda belum aktif!')->withInput();
+                    } else {
+                        if ($cek_password) {
+                            $users = session(['data_login' => $data_login]);
+                            return redirect()->route('admin-index')->with('login_success', 'Berhasil login!');
+                        }
                     }
                 }
+                // $cek_password = Hash::check($request->login_password, $data_login->login_password);
+                // if ($data_login) {
+                //     if ($cek_password) {
+                //         $users = session(['data_login' => $data_login]);
+                //         return redirect()->route('admin-index')->with('login_success', 'Berhasil login!');
+                //     }
+                // }
                 break;
             case 'siswa':
                 $cek_password = Hash::check($request->login_password, $data_login->login_password);
                 if ($data_login) {
-                    if ($cek_password) {
-                        $users = session(['data_login' => $data_login]);
-                        return redirect()->route('admin-index')->with('login_success', 'Berhasil login!');
+                    if ($data_login->login_status != 'active') {
+                        return back()->with('login_fail', 'Maaf, akun anda belum aktif!')->withInput();
+                    } else {
+                        if ($cek_password) {
+                            $users = session(['data_login' => $data_login]);
+                            return redirect()->route('admin-index')->with('login_success', 'Berhasil login!');
+                        }
                     }
                 }
                 break;
             case 'kepsek':
                 $cek_password = Hash::check($request->login_password, $data_login->login_password);
                 if ($data_login) {
-                    if ($cek_password) {
-                        $users = session(['data_login' => $data_login]);
-                        return redirect()->route('admin-index')->with('login_success', 'Berhasil login!');
+                    if ($data_login->login_status != 'active') {
+                        return back()->with('login_fail', 'Maaf, akun anda belum aktif!')->withInput();
+                    } else {
+                        if ($cek_password) {
+                            $users = session(['data_login' => $data_login]);
+                            return redirect()->route('admin-index')->with('login_success', 'Berhasil login!');
+                        }
                     }
                 }
                 break;
             case 'guest':
                 $cek_password = Hash::check($request->login_password, $data_login->login_password);
                 if ($data_login) {
-                    if ($cek_password) {
-                        $users = session(['data_login' => $data_login]);
-                        return redirect()->route('admin-index');
+                    if ($data_login->login_status != 'active') {
+                        return back()->with('login_fail', 'Maaf, akun anda belum aktif!')->withInput();
+                    } else {
+                        if ($cek_password) {
+                            $users = session(['data_login' => $data_login]);
+                            return redirect()->route('admin-index')->with('login_success', 'Berhasil login!');
+                        }
                     }
                 }
                 break;
