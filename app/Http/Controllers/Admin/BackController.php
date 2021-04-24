@@ -24,8 +24,6 @@ class BackController extends Controller
     public function generateUser()
     {
         $faker = Faker::create('id_ID');
-
-        
         for ($i = 0; $i < 5; $i++) {
             $jeniskelamin               = ['L', 'P'];
             $detail                     = new Detail;
@@ -39,7 +37,6 @@ class BackController extends Controller
                 'updated_at'            => now()
             ]);
             $saveDetail->save();
-            
 
             $username               = Str::random(5);
             $password               = Hash::make($username, [
@@ -49,7 +46,6 @@ class BackController extends Controller
             $email                 .= '@website.com';
             $level                  = ['guest', 'user'];
             $status                 = ['verified', 'unverified'];
-
             $token = Str::random(16);
             $saveLogin = $login->create([
                 'login_username'    => $username,

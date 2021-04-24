@@ -24,8 +24,6 @@ class DatabaseSeeder extends Seeder
             'updated_at'            => now()
         ]);
         $saveDetail->save();
-        
-
         $username               = 'admin';
         $password               = Hash::make($username, [
                                         'rounds' => 12,
@@ -34,7 +32,6 @@ class DatabaseSeeder extends Seeder
         $email                 .= '@siakadtk.com';
         $level                  = 'admin';
         $status                 = 'verified';
-
         $token = Str::random(16);
         $saveLogin = $login->create([
             'login_username'    => $username,
