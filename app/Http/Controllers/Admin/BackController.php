@@ -74,19 +74,19 @@ class BackController extends Controller
 
     public function postLogin(Request $request)
     {
-        $cariUser = Login::where('login_username', $request->login_username)->firstOrFail();
+        $cariUser = Login::where('login_username', $request->login_username)->get();
         // dd($cariUser);
-        if (!$cariUser) {
+        if ($cariUser->isEmpty()) {
             return back()->with('login_fail', 'Maaf username atau password salah!')->withInput();
-        }
-        $data_login = Login::where('login_username', $request->login_username)->firstOrFail();
-        switch ($data_login->login_level) {
+        } else {
+            $data_login = Login::where('login_username', $request->login_username)->firstOrFail();
+            switch ($data_login->login_level) {
             case 'admin':
                 $cek_password = Hash::check($request->login_password, $data_login->login_password);
                 if ($data_login) {
                     if ($cek_password) {
                         $users = session(['data_login' => $data_login]);
-                        return redirect()->route('admin-index');
+                        return redirect()->route('admin-index')->with('login_success', 'Berhasil login!');
                     }
                 }
                 break;
@@ -95,7 +95,7 @@ class BackController extends Controller
                 if ($data_login) {
                     if ($cek_password) {
                         $users = session(['data_login' => $data_login]);
-                        return redirect()->route('admin-index');
+                        return redirect()->route('admin-index')->with('login_success', 'Berhasil login!');
                     }
                 }
                 // if ($request->login_password == $data_login->login_password) {
@@ -108,7 +108,7 @@ class BackController extends Controller
                 if ($data_login) {
                     if ($cek_password) {
                         $users = session(['data_login' => $data_login]);
-                        return redirect()->route('admin-index');
+                        return redirect()->route('admin-index')->with('login_success', 'Berhasil login!');
                     }
                 }
                 break;
@@ -117,7 +117,7 @@ class BackController extends Controller
                 if ($data_login) {
                     if ($cek_password) {
                         $users = session(['data_login' => $data_login]);
-                        return redirect()->route('admin-index');
+                        return redirect()->route('admin-index')->with('login_success', 'Berhasil login!');
                     }
                 }
                 break;
@@ -130,6 +130,7 @@ class BackController extends Controller
                     }
                 }
                 break;
+            }
         }
     }
 

@@ -22,7 +22,12 @@
       <a href="{{ asset('vendor/adminlte/') }}/index2.html" class="h1"><b>Admin</b>LTE</a>
     </div>
     <div class="card-body">
-      <p class="login-box-msg">Sign in to start your session</p>
+        <p class="login-box-msg">Sign in to start your session</p>
+        @if (session('login_fail'))
+            <div class="alert alert-danger">
+                {{ session('login_fail') }}
+            </div>
+        @endif
 
       <form action="{{ route('post-login') }}" method="post">
         @csrf

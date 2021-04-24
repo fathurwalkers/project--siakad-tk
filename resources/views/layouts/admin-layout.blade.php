@@ -86,7 +86,6 @@
 
       <!-- Sidebar Menu -->
       @component('components.admin-navbar')
-        
       @endcomponent
       <!-- /.sidebar-menu -->
     </div>
@@ -120,6 +119,13 @@
           <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
             <div class="card">
               <div class="card-body">
+
+                @if (session('login_fail'))
+                    <div class="alert alert-danger">
+                        {{ session('login_fail') }}
+                    </div>
+                @endif
+
                 @yield('main-content')
               </div>
             </div>
