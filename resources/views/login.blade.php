@@ -19,11 +19,11 @@
   <!-- /.login-logo -->
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
-      <a href="{{ asset('vendor/adminlte/') }}/index2.html" class="h1"><b>Admin</b>LTE</a>
+      <a href="#" class="h1"><b>LOGIN</b></a>
     </div>
     <div class="card-body">
 
-        <p class="login-box-msg">Sign in to start your session</p>
+        {{-- <p class="login-box-msg">Sign in to start your session</p> --}}
 
         @if (session('login_fail'))
             <div class="alert alert-danger">

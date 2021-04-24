@@ -21,11 +21,6 @@ class BackController extends Controller
         //
     }
 
-    public function index()
-    {
-        return "Index Page";
-    }
-
     public function generateUser()
     {
         $faker = Faker::create('id_ID');
