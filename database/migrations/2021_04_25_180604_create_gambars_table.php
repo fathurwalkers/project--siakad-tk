@@ -4,21 +4,21 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateKategorisTable extends Migration
+class CreateGambarsTable extends Migration
 {
     public function up()
     {
-        Schema::create('kategori', function (Blueprint $table) {
+        Schema::create('gambar', function (Blueprint $table) {
             $table->id();
-            $table->string('kategori_nama');
-            $table->string('kategori_slug');
-            $table->string('kategori_kode');
+            $table->string('gambar_nama');
+            $table->text('gambar_lokasi');
+            $table->string('gambar_tipe');
             $table->timestamps();
         });
     }
 
     public function down()
     {
-        Schema::dropIfExists('kategori');
+        Schema::dropIfExists('gambar');
     }
 }
