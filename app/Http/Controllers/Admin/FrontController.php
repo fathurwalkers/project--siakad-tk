@@ -51,4 +51,14 @@ class FrontController extends Controller
     {
         return view('admin.post.buat-artikel');
     }
+
+    public function daftarKelas()
+    {
+        return "Halaman daftar kelas";
+    }
+
+    public function tambahKelas()
+    {
+        return "Halaman Tambah Kelas";
+    }
 }
