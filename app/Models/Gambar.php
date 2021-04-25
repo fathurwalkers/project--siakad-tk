@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Artikel;
 
 class Gambar extends Model
 {
@@ -12,4 +13,9 @@ class Gambar extends Model
     protected $table = 'gambar';
     
     protected $guarded = [];
+
+    public function artikel()
+    {
+        return $this->hasMany(Artikel::class);
+    }
 }
