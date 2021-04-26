@@ -365,6 +365,7 @@
 			<script type="text/javascript" src="{{ asset('vendor/websekolah/assets') }}/paket/js/placeholder.js"></script>
 		<![endif]-->
 		<script src="{{ asset('vendor/websekolah/assets') }}/paket/js/jquery.onecarousel.min.js"></script>
+        @stack('after-script')
 		<script type="text/javascript">
 			$(document).ready(function() { 
 				"use strict";
