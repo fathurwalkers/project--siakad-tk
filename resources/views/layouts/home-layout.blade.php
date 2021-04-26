@@ -78,25 +78,25 @@
 													<span class="nook">&nbsp;</span>
 													<ul class="nav navbar-nav">
 														<li class="active"><a href="index.html">Beranda</a></li>
-														<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">Profil Sekolah</a>
+														<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">Artikel</a>
 														    <ul class="dropdown-menu">
 														      <li><a href="identitas.html">Identitas</a></li>
 														      <li><a href="visi-misi.html">Visi &amp; Misi</a></li>
 														      <li><a href="sarana-prasarana.html">Sarana &amp; Prasarana</a></li>
 														      <li><a href="program-kegiatan.html">Program &amp; Kegiatan </a></li>
-														      <li><a href="prestasi.html">Prestasi</a></li>
+														      <li><a href="prestasi.html">Lainnya</a></li>
 														    </ul>
 													    </li>
-														<li><a href="#">Kurikulum</a></li>
-														<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">Kesiswaan</a>
+                                                        <li><a href="galeri.html">Galeri</a></li>
+														{{-- <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">Kesiswaan</a>
 														    <ul class="dropdown-menu">
 														      <li><a href="daftar-siswa.html">Daftar Siswa</a></li>
 														      <li><a href="daftar-guru.html">Daftar Guru &amp; Staff</a></li>
 														      <li><a href="daftar-kelas.html">Daftar Kelas</a></li>
 														    </ul>
-													    </li>
-														<li><a href="galeri.html">Galeri</a></li>
+													    </li> --}}
 														<li><a href="buku-tamu.html">Buku Tamu</a></li>
+                                                        <li><a href="#">SIAKAD</a></li>
 														<li class="last">&nbsp;</li>
 													</ul>
 													<!--  frame pull-right start -->
