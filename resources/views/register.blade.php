@@ -36,7 +36,7 @@
 
       <form action="{{ route('post-register') }}" method="post">
         @csrf
-        <div class="input-group mb-3">
+        <div class="input-group mb-2">
           <input type="text" class="form-control" placeholder="Nama lengkap..." name="detail_nama" autofocus autocomplete="off">
           <div class="input-group-append">
             <div class="input-group-text">
@@ -45,7 +45,7 @@
           </div>
         </div>
 
-        <div class="input-group mb-3">
+        <div class="input-group mb-1">
           <input type="text" class="form-control" placeholder="Nomor handphone/telepon..." name="detail_telepon" autofocus autocomplete="off">
           <div class="input-group-append">
             <div class="input-group-text">
@@ -54,7 +54,7 @@
           </div>
         </div>
 
-        <div class="input-group mb-3">
+        <div class="input-group mb-1 mt-1">
             <div class="form-check form-check-inline icheck-primary">
                 <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="L">
                 <label class="form-check-label" for="inlineCheckbox1"><b>Laki-laki</b></label>
@@ -65,7 +65,7 @@
               </div>
         </div>
         
-        <div class="input-group mb-3">
+        <div class="input-group mb-2">
           <input type="text" class="form-control" placeholder="Username..." name="login_username" autofocus autocomplete="off">
           <div class="input-group-append">
             <div class="input-group-text">
@@ -74,7 +74,7 @@
           </div>
         </div>
 
-        <div class="input-group mb-3">
+        <div class="input-group mb-2">
           <input type="password" class="form-control" placeholder="Password..." name="login_password">
           <div class="input-group-append">
             <div class="input-group-text">
