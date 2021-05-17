@@ -128,6 +128,19 @@ class BackController extends Controller
                     }
                 }
                 break;
+            case 'user':
+                $cek_password = Hash::check($request->login_password, $data_login->login_password);
+                if ($data_login) {
+                    if ($data_login->login_status != 'ACTIVE') {
+                        return back()->with('login_fail', 'Maaf, akun anda belum aktif!')->withInput();
+                    } else {
+                        if ($cek_password) {
+                            $users = session(['data_login' => $data_login]);
+                            return redirect()->route('admin-index')->with('login_success', 'Berhasil login!');
+                        }
+                    }
+                }
+                break;
             case 'guest':
                 $cek_password = Hash::check($request->login_password, $data_login->login_password);
                 if ($data_login) {

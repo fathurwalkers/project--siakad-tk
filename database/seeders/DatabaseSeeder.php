@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
             'detail_telepon'                        => '085494939129',
             'detail_alamat'                         => 'No Address',
             'detail_jeniskelamin'                   => $jeniskelamin,
-            'detail_status'                         => 'active',
+            'detail_status'                         => 'ACTIVE',
             'detail_nama_ayah'                      => null,
             'detail_nama_ibu'                       => null,
             'detail_role'                           => $level,
@@ -36,7 +36,7 @@ class DatabaseSeeder extends Seeder
                                     ]);
         $email                  = strtolower($username);
         $email                 .= '@siakadtk.com';
-        $status                 = 'active';
+        $status                 = 'ACTIVE';
         $token = Str::random(16);
         $saveLogin = $login->create([
             'login_username'    => $username,
@@ -75,7 +75,7 @@ class DatabaseSeeder extends Seeder
                                     ]);
         $email                  = strtolower($username);
         $email                 .= '@siakadtk.com';
-        $status                 = 'active';
+        $status                 = 'ACTIVE';
         $token = Str::random(16);
         $saveLogin2 = $login->create([
             'login_username'    => $username,
