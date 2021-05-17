@@ -163,7 +163,7 @@ class BackController extends Controller
             'created_at'                    => now(),
             'updated_at'                    => now()
         ]);
-        // $saveDetail->save();
+        $saveDetail->save();
 
         $username               = $request->login_username;
         $password               = Hash::make($request->login_password, [
@@ -184,9 +184,7 @@ class BackController extends Controller
                 'updated_at'        => now(),
             ]);
         $saveLogin->detail()->associate($saveDetail->id);
-        // $saveLogin->save();
-        dump($saveDetail);
-        dd($saveLogin);
+        $saveLogin->save();
     }
 
     public function logout(Request $request)
