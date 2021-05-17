@@ -56,15 +56,14 @@
         </div>
 
         <div class="input-group mb-3">
-            <input type="checkbox" id="remember">
-            <label for="remember">
-              Remember Me
-            </label>
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-envelope"></span>
-            </div>
-          </div>
+            <div class="form-check form-check-inline icheck-primary">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="L">
+                <label class="form-check-label" for="inlineCheckbox1"><b>Laki-laki</b></label>
+              </div> | &nbsp;&nbsp;
+              <div class="form-check form-check-inline icheck-primary">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="P">
+                <label class="form-check-label" for="inlineCheckbox2"><b>Perempuan</b></label>
+              </div>
         </div>
         
         <div class="input-group mb-3">
