@@ -20,7 +20,7 @@ class CreateDetailsTable extends Migration
             $table->string('detail_nama_ibu')->default(null)->nullable();
             $table->string('detail_role')->default('guest');
 
-            $table->unsignedBigInteger('kelas_id')->defaul(null)->nullable();
+            $table->unsignedBigInteger('kelas_id')->default(null)->nullable();
             $table->foreign('kelas_id')->references('id')->on('kelas')->onDelete('cascade');
 
             $table->timestamps();
