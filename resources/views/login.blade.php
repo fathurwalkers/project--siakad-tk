@@ -34,6 +34,12 @@
             </div>
         @endif
 
+        @if (session('berhasil_register'))
+            <div class="alert alert-success">
+                {{ session('berhasil_register') }}
+            </div>
+        @endif
+
       <form action="{{ route('post-login') }}" method="post">
         @csrf
         <div class="input-group mb-3">

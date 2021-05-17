@@ -185,6 +185,8 @@ class BackController extends Controller
             ]);
         $saveLogin->detail()->associate($saveDetail->id);
         $saveLogin->save();
+
+        return redirect()->route('login-page')->with('berhasil_register', 'Anda telah berhasil mendaftar!');
     }
 
     public function logout(Request $request)
