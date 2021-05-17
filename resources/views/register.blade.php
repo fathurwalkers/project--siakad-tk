@@ -109,7 +109,7 @@
         <a href="forgot-password.html">I forgot my password</a>
       </p> --}}
       <p class="mx-auto my-2">
-        <a href="register.html" class="btn btn-info text-center d-flex justify-content-center mx-5 mt-4">Register a new membership</a>
+        <a href="{{ route('login-page') }}" class="btn btn-info text-center d-flex justify-content-center mx-5 mt-4">Return to Login</a>
       </p>
     </div>
     <!-- /.card-body -->
