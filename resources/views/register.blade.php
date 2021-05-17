@@ -54,16 +54,18 @@
           </div>
         </div>
 
-        <div class="input-group mb-1 mt-1">
-            <div class="form-check form-check-inline icheck-primary">
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="L">
-                <label class="form-check-label" for="inlineCheckbox1"><b>Laki-laki</b></label>
-              </div> | &nbsp;&nbsp;
-              <div class="form-check form-check-inline icheck-primary">
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="P">
-                <label class="form-check-label" for="inlineCheckbox2"><b>Perempuan</b></label>
+        <div class="input-group mb-3">
+            <select class="form-select form-control" id="inputGroupSelect02" name="detail_jeniskelamin">
+              <option selected value="{{ null }}">Jenis Kelamin</option>
+              <option value="L">Laki-Laki</option>
+              <option value="P">Perempuan</option>
+            </select>
+            <div class="input-group-append">
+                <div class="input-group-text">
+                  <span class="fas fa-envelope"></span>
+                </div>
               </div>
-        </div>
+          </div>
         
         <div class="input-group mb-2">
           <input type="text" class="form-control" placeholder="Username..." name="login_username" autofocus autocomplete="off">

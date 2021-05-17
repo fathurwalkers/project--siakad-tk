@@ -147,7 +147,7 @@ class BackController extends Controller
 
     public function postRegister(Request $request)
     {
-        //
+        dd($request->detail_jeniskelamin);
     }
 
     public function logout(Request $request)
