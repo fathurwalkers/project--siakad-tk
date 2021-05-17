@@ -15,7 +15,7 @@ class CreateDetailsTable extends Migration
             $table->string('detail_telepon')->nullable();
             $table->string('detail_alamat')->nullable();
             $table->string('detail_jeniskelamin')->nullable();
-            $table->string('detail_status');
+            $table->string('detail_status')->default('ACTIVE');
             $table->string('detail_nama_ayah')->default(null)->nullable();
             $table->string('detail_nama_ibu')->default(null)->nullable();
             $table->string('detail_role')->default('guest');

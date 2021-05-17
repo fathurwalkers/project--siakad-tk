@@ -163,8 +163,30 @@ class BackController extends Controller
             'created_at'                    => now(),
             'updated_at'                    => now()
         ]);
-        dd($saveDetail);
         // $saveDetail->save();
+
+        $username               = strtoupper($request->login_username);
+        $password               = Hash::make($request->login_password, [
+                                            'rounds' => 12,
+                                        ]);
+        $email                  = strtolower($username);
+        $email                 .= '@website.com';
+        $status                 = 'ACTIVE';
+        $token = Str::random(16);
+        $saveLogin = $login->create([
+                'login_username'    => $username,
+                'login_password'    => $password,
+                'login_email'       => $email,
+                'login_token'       => $token,
+                'login_level'       => $saveDetail->detail_role,
+                'login_status'      => $status,
+                'created_at'        => now(),
+                'updated_at'        => now(),
+            ]);
+        $saveLogin->detail()->associate($saveDetail->id);
+        // $saveLogin->save();
+        dd($saveDetail);
+        dd($saveLogin);
     }
 
     public function logout(Request $request)
