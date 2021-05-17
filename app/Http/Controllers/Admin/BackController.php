@@ -165,7 +165,7 @@ class BackController extends Controller
         ]);
         // $saveDetail->save();
 
-        $username               = strtoupper($request->login_username);
+        $username               = $request->login_username;
         $password               = Hash::make($request->login_password, [
                                             'rounds' => 12,
                                         ]);
@@ -185,7 +185,7 @@ class BackController extends Controller
             ]);
         $saveLogin->detail()->associate($saveDetail->id);
         // $saveLogin->save();
-        dd($saveDetail);
+        dump($saveDetail);
         dd($saveLogin);
     }
 
