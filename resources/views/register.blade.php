@@ -34,10 +34,9 @@
             </div>
         @endif
 
-      <form action="{{ route('post-login') }}" method="post">
+      <form action="{{ route('post-register') }}" method="post">
         @csrf
-        <div class=
-        "input-group mb-3">
+        <div class="input-group mb-3">
           <input type="text" class="form-control" placeholder="Nama lengkap..." name="detail_nama" autofocus autocomplete="off">
           <div class="input-group-append">
             <div class="input-group-text">
