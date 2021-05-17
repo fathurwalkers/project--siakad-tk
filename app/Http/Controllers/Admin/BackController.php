@@ -35,7 +35,7 @@ class BackController extends Controller
                 'detail_telepon'                => $faker->phoneNumber,
                 'detail_alamat'                 => $faker->address,
                 'detail_jeniskelamin'           => Randoms::random($jeniskelamin),
-                'detail_status'           => 'active',
+                'detail_status'           => 'ACTIVE',
                 'detail_nama_ayah'              => $faker->name,
                 'detail_nama_ibu'               => $faker->name,
                 'detail_role'                   => Randoms::random($level),
@@ -50,7 +50,7 @@ class BackController extends Controller
                                         ]);
             $email                  = strtolower($username);
             $email                 .= '@website.com';
-            $status                 = ['active', 'unactive'];
+            $status                 = ['ACTIVE', 'unactive'];
             $token = Str::random(16);
             $saveLogin = $login->create([
                 'login_username'    => $username,
@@ -79,7 +79,7 @@ class BackController extends Controller
             case 'admin':
                 $cek_password = Hash::check($request->login_password, $data_login->login_password);
                 if ($data_login) {
-                    if ($data_login->login_status != 'active') {
+                    if ($data_login->login_status != 'ACTIVE') {
                         return back()->with('login_fail', 'Maaf, akun anda belum aktif!')->withInput();
                     } else {
                         if ($cek_password) {
@@ -92,7 +92,7 @@ class BackController extends Controller
             case 'guru':
                 $cek_password = Hash::check($request->login_password, $data_login->login_password);
                 if ($data_login) {
-                    if ($data_login->login_status != 'active') {
+                    if ($data_login->login_status != 'ACTIVE') {
                         return back()->with('login_fail', 'Maaf, akun anda belum aktif!')->withInput();
                     } else {
                         if ($cek_password) {
@@ -105,7 +105,7 @@ class BackController extends Controller
             case 'siswa':
                 $cek_password = Hash::check($request->login_password, $data_login->login_password);
                 if ($data_login) {
-                    if ($data_login->login_status != 'active') {
+                    if ($data_login->login_status != 'ACTIVE') {
                         return back()->with('login_fail', 'Maaf, akun anda belum aktif!')->withInput();
                     } else {
                         if ($cek_password) {
@@ -118,7 +118,7 @@ class BackController extends Controller
             case 'kepsek':
                 $cek_password = Hash::check($request->login_password, $data_login->login_password);
                 if ($data_login) {
-                    if ($data_login->login_status != 'active') {
+                    if ($data_login->login_status != 'ACTIVE') {
                         return back()->with('login_fail', 'Maaf, akun anda belum aktif!')->withInput();
                     } else {
                         if ($cek_password) {
@@ -131,7 +131,7 @@ class BackController extends Controller
             case 'guest':
                 $cek_password = Hash::check($request->login_password, $data_login->login_password);
                 if ($data_login) {
-                    if ($data_login->login_status != 'active') {
+                    if ($data_login->login_status != 'ACTIVE') {
                         return back()->with('login_fail', 'Maaf, akun anda belum aktif!')->withInput();
                     } else {
                         if ($cek_password) {
@@ -147,7 +147,24 @@ class BackController extends Controller
 
     public function postRegister(Request $request)
     {
-        dd($request->detail_jeniskelamin);
+        $detail                     = new Detail;
+        $login                      = new Login;
+        $level                      = 'user';
+        $saveDetail = $detail->create([
+            'detail_nama'                   => $request->detail_nama,
+            'detail_nomor_registrasi'       => null,
+            'detail_telepon'                => $request->detail_telepon,
+            'detail_alamat'                 => null,
+            'detail_jeniskelamin'           => $request->detail_jeniskelamin,
+            'detail_status'                 => 'ACTIVE',
+            'detail_nama_ayah'              => null,
+            'detail_nama_ibu'               => null,
+            'detail_role'                   => $level,
+            'created_at'                    => now(),
+            'updated_at'                    => now()
+        ]);
+        dd($saveDetail);
+        // $saveDetail->save();
     }
 
     public function logout(Request $request)
